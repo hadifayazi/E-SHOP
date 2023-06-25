@@ -2,6 +2,12 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { RxDotFilled } from "react-icons/rx";
 import items from "../assets/data";
 import { useState } from "react";
+import { mobile } from "../utils/responsive";
+import { styled } from "styled-components";
+
+const Containerdiv = styled.div`
+  ${mobile({ display: "none" })}
+`;
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,8 +26,9 @@ const Slider = () => {
   const changeSlide = (itemIndex) => {
     setCurrentIndex(itemIndex);
   };
+
   return (
-    <div className=" bg-slate-200">
+    <Containerdiv className=" bg-slate-200">
       <div className="max-w-[700px] w-full h-[500px]  py-8 m-auto relative group">
         <div
           style={{ backgroundImage: `url(${items[currentIndex].url})` }}
@@ -49,7 +56,7 @@ const Slider = () => {
           })}
         </div>
       </div>
-    </div>
+    </Containerdiv>
   );
 };
 
