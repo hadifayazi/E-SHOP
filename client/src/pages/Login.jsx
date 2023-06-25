@@ -33,8 +33,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <h1 className="text-center text-2xl  font-bold"> Login</h1>
+    <div
+      style={{
+        backgroundImage: `url(https://images.pexels.com/photos/326316/pexels-photo-326316.jpeg?auto=compress&cs=tinysrgb&w=600)`,
+      }}
+      className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 "
+    >
+      <h1 className="text-center text-2xl text-custRed font-bold"> Login</h1>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col justify-center items-center m-2 w-full gap-2 ">
           <input

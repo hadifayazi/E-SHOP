@@ -44,8 +44,14 @@ const Signup = () => {
     signupUser(formData);
   };
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8  ">
-      <h1 className="text-center text-2xl  font-bold">Sign up</h1>
+    <div
+      style={{
+        backgroundImage:
+          "url(https://images.pexels.com/photos/821738/pexels-photo-821738.jpeg?auto=compress&cs=tinysrgb&w=600)",
+      }}
+      className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-center bg-cover "
+    >
+      <h1 className="text-center text-2xl text-custRed  font-bold">Sign up</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="flex flex-col justify-center items-center m-2 w-full gap-2 ">
           <input
@@ -109,10 +115,10 @@ const Signup = () => {
           </button>
 
           <div className="text-gray-400 mt-2 flex flex-col  sm:flex-row gap-1">
-            <p to="/forgoten-password" className="text-gray-500 text-sm ">
+            <p to="/forgoten-password" className="text-gray-200 text-sm ">
               Already have an account?
             </p>
-            <Link to="/login" className="text-teal-500 text-sm ">
+            <Link to="/login" className="text-teal-400 text-sm ">
               Sign in
             </Link>
           </div>
