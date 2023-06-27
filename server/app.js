@@ -8,6 +8,7 @@ import path from "path";
 import { signupUser } from "./controllers/authController.js";
 import { fileURLToPath } from "url";
 import userRoutes from "./routes/userRoutes.js";
+import productRouts from "./routes/productRoutes.js";
 import { globalErrHandler } from "./controllers/errorController.js";
 
 export const app = express();
@@ -35,17 +36,18 @@ const storage = multer.diskStorage({
   },
 });
 
-app.all("*", (req, res, next) => {
-  console.log("req.body========", req.body);
-  console.log("req.params ======", req.params);
-  console.log(req.cookies);
-  next();
-});
+// app.all("*", (req, res, next) => {
+//   console.log("req.body========", req.body);
+//   console.log("req.params ======", req.params);
+//   console.log(req.cookies);
+//   next();
+// });
 const upload = multer({ storage: storage });
 
 //Routes with file
 app.post("/api/v1/users/signup", upload.single("image"), signupUser);
 
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/products", productRouts);
 
 // app.use(globalErrHandler);
