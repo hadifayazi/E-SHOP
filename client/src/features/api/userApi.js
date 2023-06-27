@@ -37,6 +37,35 @@ const userApi = createApi({
         };
       },
     }),
+    logoutUser: builder.query({
+      query() {
+        return {
+          url: "/logout",
+          method: "GET",
+          credentials: "include",
+        };
+      },
+    }),
+    forgotPassword: builder.mutation({
+      query: (email) => {
+        return {
+          url: "/forgot-password",
+          method: "POST",
+          credentials: "include",
+          body: { email },
+        };
+      },
+    }),
+    resetPassword: builder.mutation({
+      query: ({ token, password }) => {
+        return {
+          url: "/reset-password",
+          method: "PATCH",
+          credentials: "include",
+          body: { token, password },
+        };
+      },
+    }),
     getUser: builder.query({
       query() {
         return {
@@ -59,6 +88,9 @@ export const {
   useSignupUserMutation,
   useVerifyUserMutation,
   useLoginUserMutation,
+  useLogoutUserQuery,
+  useForgotPasswordMutation,
+  useResetPasswordMutation,
   useGetUserQuery,
 } = userApi;
 

@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import ProductPage from "./pages/ProductPage";
 import Cart from "./pages/Cart";
+import ResetPassword from "./pages/ResetPassword";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -15,10 +17,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/activation/:token" element={<ActivateAccount />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/reset-password/:token" element={<ResetPassword />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/category/:category" element={<ProductPage />} />
             <Route path="/products/:id" element={<ProductPage />} />
             <Route path="/cart" element={<Cart />} />

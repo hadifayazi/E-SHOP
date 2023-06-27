@@ -22,7 +22,7 @@ const Header = () => {
           type="search"
           name="search"
           placeholder="Search..."
-          className=" focus:outline-none sm:w-16"
+          className=" focus:outline-none sm:w-80"
         />
         <BsSearch />
       </div>

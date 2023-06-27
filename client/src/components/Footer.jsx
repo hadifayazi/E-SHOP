@@ -2,10 +2,9 @@ import { useState } from "react";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-  console.log(email);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
   };
   return (
     <div className="w-full h-[150px] bg-black flex flex-col  text-white justify-center items-center  ">
