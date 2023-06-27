@@ -70,7 +70,7 @@ const Login = () => {
             <span>Remember me</span>
           </div>
           <div className="text-gray-400 mt-2 flex flex-col gap-1">
-            <Link to="/forgoten-password" className="text-teal-500 text-sm ">
+            <Link to="/forgot-password" className="text-teal-500 text-sm ">
               Forgot my password
             </Link>
             <p className="text-center text-sm">Or</p>
