@@ -6,7 +6,7 @@ import { mobile } from "../utils/responsive";
 import { styled } from "styled-components";
 
 const Containerdiv = styled.div`
-  ${mobile({ display: "none" })}
+  ${mobile({ $mobile: ` display: "none" ` })}
 `;
 
 const Slider = () => {

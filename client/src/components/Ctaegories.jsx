@@ -5,7 +5,9 @@ import { styled } from "styled-components";
 import { mobile } from "../utils/responsive";
 
 const Container = styled.div`
-  ${mobile({ display: "flex", flexDirection: "column", padding: "10px" })}
+  ${mobile({
+    $mobile: ` display: "flex", flexDirection: "column", padding: "10px" `,
+  })}
 `;
 const Ctaegories = () => {
   const renderedCategories = categories.map((category) => {

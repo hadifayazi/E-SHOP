@@ -7,7 +7,7 @@ import { mobile } from "../utils/responsive";
 
 const Btn = styled.button`
   ${mobile({
-    display: "none",
+    $mobile: `  display: "none",`,
   })}
 `;
 

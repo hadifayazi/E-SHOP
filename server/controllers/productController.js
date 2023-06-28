@@ -61,7 +61,7 @@ export const getProduct = async (req, res, next) => {
 
 export const getAllProducts = async (req, res, next) => {
   const latestQuery = req.query.latest;
-  const categoryQuery = req.query.category.tolower();
+  const categoryQuery = req.query.category;
   try {
     let products;
 

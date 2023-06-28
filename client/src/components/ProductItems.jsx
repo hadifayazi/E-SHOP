@@ -3,7 +3,8 @@ import { mobile } from "../utils/responsive";
 
 const Container = styled.div`
   ${mobile({
-    width: "100%",
+    $mobile: `
+    width: "100%",`,
   })}
 `;
 
@@ -11,7 +12,7 @@ const ProductItems = ({ product }) => {
   return (
     <Container className="flex flex-col w-[280px] h-80 p-1 ">
       <img
-        src={product.img}
+        src={product.img[0]}
         alt={product.title}
         className="object-cover h-full"
       />
