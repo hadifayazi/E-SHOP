@@ -17,7 +17,7 @@ export const createOrder = async (req, res, next) => {
 };
 
 //get user orders
-export const getCart = async (req, res, next) => {
+export const getUserOrder = async (req, res, next) => {
   const { userId } = req.params;
   try {
     const orders = await Order.find(userId);
@@ -61,7 +61,7 @@ export const deleteOrder = async (req, res) => {
 };
 
 //Admin only
-export const getAllCarts = async (req, res) => {
+export const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find();
     res.status(200).json(orders);

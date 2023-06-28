@@ -8,6 +8,8 @@ import path from "path";
 import { signupUser } from "./controllers/authController.js";
 import { fileURLToPath } from "url";
 import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
+import cartRoutes from "./routes/cartRoutes.js";
 import productRouts from "./routes/productRoutes.js";
 import { globalErrHandler } from "./controllers/errorController.js";
 
@@ -49,5 +51,7 @@ app.post("/api/v1/users/signup", upload.single("image"), signupUser);
 
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/products", productRouts);
+app.use("/api/v1/orders", orderRoutes);
+app.use("/api/v1/cart", cartRoutes);
 
 // app.use(globalErrHandler);
