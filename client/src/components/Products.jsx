@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 import ProductItems from "./ProductItems";
 import { nanoid } from "nanoid";
 import { mobile } from "../utils/responsive";
+import { useGetAllProductsQuery } from "../features/api/productApi";
+import { useEffect } from "react";
 
 const Container = styled.div`
   ${mobile({
@@ -13,79 +15,86 @@ const Container = styled.div`
 `;
 
 const Products = () => {
-  const prodsucts = [
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/1186851/pexels-photo-1186851.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/691640/pexels-photo-691640.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/440320/pexels-photo-440320.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/109555/pexels-photo-109555.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/277429/pexels-photo-277429.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/236915/pexels-photo-236915.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/277429/pexels-photo-277429.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-    {
-      id: nanoid(),
-      title: "product name",
-      price: 100,
-      description: "Product desc",
-      img: "https://images.pexels.com/photos/462394/pexels-photo-462394.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-  ];
-  const renderedProductItems = prodsucts.map((product) => {
+  const { data, isSuccess, isError, error } = useGetAllProductsQuery();
+
+  useEffect(() => {
+    if (isSuccess) {
+      console.log(data);
+    }
+  }, [isSuccess, data]);
+  // const prodsucts = [
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  //   },
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/1186851/pexels-photo-1186851.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/691640/pexels-photo-691640.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/440320/pexels-photo-440320.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  //   },
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/109555/pexels-photo-109555.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/277429/pexels-photo-277429.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/236915/pexels-photo-236915.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/277429/pexels-photo-277429.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  //   {
+  //     id: nanoid(),
+  //     title: "product name",
+  //     price: 100,
+  //     description: "Product desc",
+  //     img: "https://images.pexels.com/photos/462394/pexels-photo-462394.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  // ];
+  const renderedProductItems = data.map((product) => {
     return <ProductItems key={product.id} product={product} />;
   });
   return (
