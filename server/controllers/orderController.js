@@ -2,15 +2,16 @@ import Order from "../model/orderSchema.js";
 
 export const createOrder = async (req, res, next) => {
   const { userId, products, amount, address, status } = req.body;
+  console.log(userId, products, amount, address);
   try {
-    const cart = await Order.create({
+    const order = await Order.create({
       userId,
       products,
       amount,
       address,
       status,
     });
-    res.status(200).json(cart);
+    res.status(200).json(order);
   } catch (error) {
     res.status(404).json({ meesage: error.message });
   }
