@@ -10,6 +10,7 @@ import ProductPage from "./pages/ProductPage";
 import Cart from "./pages/Cart";
 import ResetPassword from "./pages/ResetPassword";
 import ForgotPassword from "./pages/ForgotPassword";
+import StripeContainer from "./components/StripeContainer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/category/:category" element={<ProductPage />} />
             <Route path="/products/:id" element={<ProductPage />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<StripeContainer />} />
           </Route>
         </Routes>
         <ToastContainer
