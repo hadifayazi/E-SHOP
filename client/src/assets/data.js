@@ -1,30 +1,30 @@
 const items = [
   {
-    url: "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/338027/pexels-photo-338027.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
-    url: "https://images.pexels.com/photos/832811/pexels-photo-832811.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/4004127/pexels-photo-4004127.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
-    url: "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
 ];
 
 export const categories = [
   {
     id: 1,
-    title: "Computers",
-    img: "https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Woman",
+    img: "https://images.pexels.com/photos/16564552/pexels-photo-16564552/free-photo-of-mode-femme-modele-blond.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     id: 1,
-    title: "Cameras",
-    img: "https://images.pexels.com/photos/1251299/pexels-photo-1251299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    title: "Men",
+    img: "https://images.pexels.com/photos/5325756/pexels-photo-5325756.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     id: 1,
-    title: "Watches",
-    img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    title: "Childeren",
+    img: "https://media.istockphoto.com/id/1128020033/fr/photo/portrait-de-deux-gentil-mignon-fou-winsome-doux-attrayant-beau-assez-joyeux-joyeux-filles-aux.jpg?s=612x612&w=0&k=20&c=tOt7c2KU3-LybShZ6nzNhMvFq8AvqZITjVkxUVWBfOw=",
   },
 ];
 

@@ -7,9 +7,9 @@ const productApi = createApi({
   }),
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query() {
+      query(category = "") {
         return {
-          url: "/",
+          url: category ? `/?category=${category}` : "/",
           method: "GET",
           credentials: "include",
         };

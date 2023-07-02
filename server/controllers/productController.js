@@ -1,13 +1,17 @@
 import Product from "../model/productModel.js";
 
 export const createProduct = async (req, res, next) => {
-  const { title, img, desc, price, categories } = req.body;
+  const { title, img, desc, price, categories, size, color, inStock } =
+    req.body;
   try {
     const product = await Product.create({
       title,
       img,
       desc,
       price,
+      size,
+      inStock,
+      color,
       categories,
     });
     res.status(201).json(product);
@@ -61,7 +65,8 @@ export const getProduct = async (req, res, next) => {
 
 export const getAllProducts = async (req, res, next) => {
   const latestQuery = req.query.latest;
-  const categoryQuery = req.query.category;
+  const categoryQuery = req.query?.category?.toLowerCase();
+  console.log(categoryQuery);
   try {
     let products;
 
