@@ -7,7 +7,7 @@ const CategoryItem = ({ category }) => {
       <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center flex-col ">
         <h1 className="text-white font-bold">{category.title}</h1>
         <Link
-          to={`/category/${category.title}`}
+          to={`/products/${category.title}`}
           type="button"
           className="bg-black/40 text-white px-2 py-1 rounded-md mt-4 hover:bg-pink-700"
         >

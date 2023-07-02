@@ -11,6 +11,7 @@ import Cart from "./pages/Cart";
 import ResetPassword from "./pages/ResetPassword";
 import ForgotPassword from "./pages/ForgotPassword";
 import StripeContainer from "./components/StripeContainer";
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
             <Route path="/activation/:token" element={<ActivateAccount />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/category/:category" element={<ProductPage />} />
+            <Route path="/products/:category" element={<Products />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<ProductPage />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<StripeContainer />} />

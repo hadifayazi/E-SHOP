@@ -1,5 +1,4 @@
 import Ctaegories from "../components/Ctaegories";
-import Products from "../components/Products";
 import Slider from "../components/Slider";
 
 const Home = () => {
@@ -7,7 +6,6 @@ const Home = () => {
     <div>
       <Slider />
       <Ctaegories />
-      <Products />
     </div>
   );
 };

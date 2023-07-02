@@ -1,7 +1,9 @@
 import { styled } from "styled-components";
 import { mobile } from "../utils/responsive";
+import ProductPage from "../pages/ProductPage";
+import { Link } from "react-router-dom";
 
-const Container = styled.div`
+const ProductContainer = styled.div`
   ${mobile({
     $mobile: `
     width: "100%",`,
@@ -10,17 +12,19 @@ const Container = styled.div`
 
 const ProductItems = ({ product }) => {
   return (
-    <Container className="flex flex-col w-[280px] h-80 p-1 ">
-      <img
-        src={product.img[0]}
-        alt={product.title}
-        className="object-cover h-full"
-      />
+    <ProductContainer className="flex flex-col w-[280px] h-80 p-1 ml-8">
+      <Link to={`/products/${product._id}`}>
+        <img
+          src={product.img[0]}
+          alt={product.title}
+          className="object-cover h-full w-[60%]"
+        />
+      </Link>
       <div className="">
         <h2 className="ml-2">{product.title}</h2>
-        <h3 className="ml-3">Price: {product.price}</h3>
+        <h3 className="ml-2">Price: {product.price}</h3>
       </div>
-    </Container>
+    </ProductContainer>
   );
 };
 
