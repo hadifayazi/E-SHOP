@@ -5,24 +5,23 @@ const stripeApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3000/api/v1/stripe",
     headers: {
-      Autorization:
+      Authorization:
         "Bearer pk_test_51NOEXjDiTHvFlkF0YySKaw4vVmk7WLTg0QGLiteA0mdCXc0WOyUY0WwbFLhbkRtfxYhKgNWELaJxXpunSLeshYUn004OsEY13Y",
     },
   }),
   endpoints: (builder) => ({
-    getPaymentIntent: builder.mutation({
-      query({ email, amount }) {
-        console.log(email, amount);
+    checkout: builder.mutation({
+      query({ email, items }) {
         return {
           url: "/payment",
           method: "POST",
           credentials: "include",
-          body: { email, amount },
+          body: { email, items },
         };
       },
     }),
   }),
 });
 
-export const { useGetPaymentIntentMutation } = stripeApi;
+export const { useCheckoutMutation } = stripeApi;
 export default stripeApi;
