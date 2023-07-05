@@ -10,8 +10,9 @@ import ProductPage from "./pages/ProductPage";
 import Cart from "./pages/Cart";
 import ResetPassword from "./pages/ResetPassword";
 import ForgotPassword from "./pages/ForgotPassword";
-import StripeContainer from "./components/StripeContainer";
 import Products from "./components/Products";
+import Success from "./pages/Success";
+import Cancel from "./pages/Cancel";
 
 function App() {
   return (
@@ -27,9 +28,10 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/products/:category" element={<Products />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/products/:id" element={<ProductPage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<StripeContainer />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/cancel" element={<Cancel />} />
           </Route>
         </Routes>
         <ToastContainer
