@@ -4,6 +4,8 @@ import { GiShoppingCart } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 import { styled } from "styled-components";
 import { mobile } from "../utils/responsive";
+import { Badge } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const Btn = styled.button`
   ${mobile({
@@ -12,10 +14,13 @@ const Btn = styled.button`
 `;
 
 const Header = () => {
+  const { quantity } = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart);
+  console.log(cart);
   return (
-    <div className="bg-black h-16 w-full  flex justify-between p-4">
+    <div className="bg-custRed h-16 w-full  flex justify-between p-4">
       <Link to="/" className="border rounded-fullp-1 px-2 text-sm sm:text-xl">
-        <h1 className="text-yellow-500 font-bold ">E-COM</h1>
+        <h1 className="text-white font-bold ">E-COM</h1>
       </Link>
       <div className="flex items-center bg-white border  rounded-full px-4">
         <input
@@ -28,7 +33,9 @@ const Header = () => {
       </div>
       <div className=" flex items-center gap-4  ">
         <Link to="/cart" className=" text-sm sm:text-2xl">
-          <GiShoppingCart style={{ color: "white" }} />
+          <Badge badgeContent={quantity} color="primary">
+            <GiShoppingCart style={{ color: "white" }} />
+          </Badge>
         </Link>
         <Link
           to="/login"

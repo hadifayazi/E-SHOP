@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import { mobile } from "../utils/responsive";
-import ProductPage from "../pages/ProductPage";
 import { Link } from "react-router-dom";
 
 const ProductContainer = styled.div`
@@ -13,7 +12,7 @@ const ProductContainer = styled.div`
 const ProductItems = ({ product }) => {
   return (
     <ProductContainer className="flex flex-col w-[280px] h-80 p-1 ml-8">
-      <Link to={`/products/${product._id}`}>
+      <Link to={`/product/${product._id}`}>
         <img
           src={product.img[0]}
           alt={product.title}

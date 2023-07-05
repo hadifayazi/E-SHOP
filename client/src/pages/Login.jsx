@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useLoginUserMutation } from "../features/api/userApi";
 import { toast } from "react-toastify";
-import { setUser } from "../features/user/authSlice";
+import { setUser } from "../features/slices/authSlice";
 import { useDispatch } from "react-redux";
 
 // hadifayazi4@gmail.com
