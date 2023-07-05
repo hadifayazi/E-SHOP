@@ -5,6 +5,7 @@ const productApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3000/api/v1/products",
   }),
+
   endpoints: (builder) => ({
     getAllProducts: builder.query({
       query(category = "") {
@@ -15,8 +16,17 @@ const productApi = createApi({
         };
       },
     }),
+    getProduct: builder.query({
+      query(id) {
+        return {
+          url: `/${id}`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetAllProductsQuery } = productApi;
+export const { useGetAllProductsQuery, useGetProductQuery } = productApi;
 export default productApi;
