@@ -55,6 +55,7 @@ export const deleteProduct = async (req, res, next) => {
 
 export const getProduct = async (req, res, next) => {
   const { id } = req.params;
+
   try {
     const product = await Product.findById(id);
     res.status(200).json(product);
@@ -66,7 +67,7 @@ export const getProduct = async (req, res, next) => {
 export const getAllProducts = async (req, res, next) => {
   const latestQuery = req.query.latest;
   const categoryQuery = req.query?.category?.toLowerCase();
-  console.log(categoryQuery);
+
   try {
     let products;
 
