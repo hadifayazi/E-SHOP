@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { setUser } from "../user/authSlice";
+import { setUser } from "../slices/authSlice";
 
 const userApi = createApi({
   reducerPath: "api/users",
@@ -93,5 +93,3 @@ export const {
   useResetPasswordMutation,
   useGetUserQuery,
 } = userApi;
-
-// hadifayazi4@gmail.com
