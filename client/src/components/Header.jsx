@@ -14,9 +14,9 @@ const Btn = styled.button`
 `;
 
 const Header = () => {
+  const { user } = useSelector((state) => state.auth);
   const { quantity } = useSelector((state) => state.cart);
-  const cart = useSelector((state) => state.cart);
-  console.log(cart);
+
   return (
     <div className="bg-custRed h-16 w-full  flex justify-between p-4">
       <Link to="/" className="border rounded-fullp-1 px-2 text-sm sm:text-xl">
@@ -37,20 +37,27 @@ const Header = () => {
             <GiShoppingCart style={{ color: "white" }} />
           </Badge>
         </Link>
-        <Link
-          to="/login"
-          className="flex items-center rounded-full bg-white sm:pl-2 "
-        >
-          <Btn
-            type="button"
-            className="text-rose-700 text-sm sm:font-bold py-1"
+
+        {user ? (
+          <div className="text-white font bold border p-2 rounded-full">
+            {user.firstName}
+          </div>
+        ) : (
+          <Link
+            to="/login"
+            className="flex items-center rounded-full bg-white sm:pl-2 "
           >
-            Login
-          </Btn>
-          <span>
-            <CgProfile style={{ color: "#EAB308", fontSize: "1.5rem" }} />
-          </span>
-        </Link>
+            <Btn
+              type="button"
+              className="text-rose-700 text-sm sm:font-bold py-1"
+            >
+              Login
+            </Btn>
+            <span>
+              <CgProfile style={{ color: "#EAB308", fontSize: "1.5rem" }} />
+            </span>
+          </Link>
+        )}
       </div>
     </div>
   );
