@@ -4,31 +4,38 @@ import { BiMinus } from "react-icons/bi";
 import { BsPlus } from "react-icons/bs";
 import { loadStripe } from "@stripe/stripe-js";
 import { useCheckoutMutation } from "../features/api/stripeApi";
-const email = "hello@stripe.com";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const [checkout] = useCheckoutMutation();
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const [checkout] = useCheckoutMutation();
   const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_KEY}`);
-  const handlecheckout = async () => {
-    const items = cart.products?.map((product) => {
-      return {
-        price_data: {
-          currency: "eur",
-          product_data: {
-            name: product.title,
-          },
-          unit_amount: product.price * 100,
-        },
-        quantity: product.quantity,
-      };
-    });
 
-    const response = await checkout({ items, email });
-    if (response.data) {
-      const stripe = await stripePromise;
-      await stripe.redirectToCheckout({ sessionId: response.data.id });
+  const handlecheckout = async () => {
+    if (!user) {
+      navigate("/login");
+    } else {
+      const email = user.email;
+      const items = cart.products?.map((product) => {
+        return {
+          price_data: {
+            currency: "eur",
+            product_data: {
+              name: product.title,
+            },
+            unit_amount: product.price * 100,
+          },
+          quantity: product.quantity,
+        };
+      });
+
+      const response = await checkout({ items, email });
+      if (response.data) {
+        const stripe = await stripePromise;
+        await stripe.redirectToCheckout({ sessionId: response.data.id });
+      }
     }
   };
 
